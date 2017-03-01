@@ -3,13 +3,22 @@
 var path = require('path'),
     passport = require('passport');
 
-module.exports = function(method) {
+module.exports = function (method) {
     var methods = {
+        index: index,
         login: login,
         register: register
     };
 
     return methods[method]();
+
+    function index() {
+        return function (req, res, next) {
+            if (req.route.methods.get) {
+                res.sendFile(path.join(__dirname, '../../../resources/views', 'index.html'));
+            }
+        }
+    }
 
     function login() {
         return function (req, res, next) {
@@ -31,7 +40,7 @@ module.exports = function(method) {
             } else {
                 res.sendFile(path.join(__dirname, '../../../resources/views/auth', 'index.html'));
             }
-        };
+        }
     }
 
     function register() {
@@ -41,6 +50,6 @@ module.exports = function(method) {
             } else {
                 res.sendFile(path.join(__dirname, '../../../resources/views/auth', 'index.html'));
             }
-        };
+        }
     }
 };

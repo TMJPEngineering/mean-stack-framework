@@ -2,8 +2,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         watch: {
             src: {
-                files: ['modules/**/*.js', '!modules/**/server/*.js', '!modules/**/server/**/*.js'],
-                tasks: ['browserify', 'uglify']
+                files: ['modules/**/*.js', '!modules/**/server/*.js', '!modules/**/server/**/*.js', 'resources/assets/style.scss'],
+                tasks: ['browserify', 'uglify', 'sass']
             }
         },
         browserify: {
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             },
             config: {
                 src: 'modules/core/client/config/*.js',
-                dest: 'public/dist/config/config.js'  
+                dest: 'public/dist/config/config.js'
             },
             modules: {
                 src: [
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
             user: {
                 src: 'modules/user/client/**/*.js',
                 dest: 'public/dist/user/user.js'
-            },
+            }
         },
         uglify: {
             auth: {
@@ -75,11 +75,19 @@ module.exports = function(grunt) {
                 src: 'public/dist/user/user.js',
                 dest: 'public/dist/user/user.min.js'
             }
+        },
+        sass: {
+            dist: {
+                files: {
+                    'public/assets/css/style.css' : 'resources/assets/style.scss'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.registerTask('default', ['watch']);
 };

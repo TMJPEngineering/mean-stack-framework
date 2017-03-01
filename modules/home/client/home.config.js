@@ -8,7 +8,6 @@
 
     angular.module('home')
         .config(config);
-
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
     function config($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -17,7 +16,7 @@
             .state('home', {
                 url: '/',
                 views: {
-                    'header': { templateUrl: 'views/layouts/header.html' },
+                    'nav': { templateUrl: 'views/layouts/nav.html' },
                     'content': {
                         templateUrl: 'views/web/home.html',
                         controller: 'HomeController',

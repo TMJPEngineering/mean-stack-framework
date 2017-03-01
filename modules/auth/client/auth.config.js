@@ -11,20 +11,18 @@
             .state('login', {
                 url: '/login',
                 views: {
+                    'nav': { templateUrl: 'views/auth/nav.html' },
                     'content': {
-                        templateUrl: 'auth/login.html',
-                        controller: 'AuthController',
-                        controllerAs: 'ac',
+                        templateUrl: 'views/auth/login.html'
                     }
                 }
             })
             .state('register', {
                 url: '/register',
                 views: {
+                    'nav': { templateUrl: 'views/auth/nav.html' },
                     'content': {
-                        templateUrl: 'auth/register.html',
-                        controller: 'AuthController',
-                        controllerAs: 'ac',
+                        templateUrl: 'views/auth/register.html'
                     }
                 }
             });

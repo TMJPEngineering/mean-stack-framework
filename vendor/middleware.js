@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(middlewares) {
+module.exports = function (middlewares) {
     var groups = [];
 
     middlewares.forEach(function (middleware) {

@@ -3,10 +3,8 @@
  * @copyright 2016
  */
 
-(function(app) {
+(function (app) {
     'use strict';
 
-    angular.module('auth', [
-        'ui.router',
-    ]);
+    app.registerModule('auth', ['ui.router']);
 })(angularAppConfig);

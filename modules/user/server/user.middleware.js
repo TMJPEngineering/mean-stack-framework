@@ -1,9 +1,7 @@
 'use strict';
 
 module.exports = function(method) {
-    var methods = {
-
-    };
+    var methods = {};
 
     return methods[method]();
 };

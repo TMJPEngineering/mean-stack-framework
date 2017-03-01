@@ -2,6 +2,7 @@
 
 var Mongoose = require('mongoose'),
     Schema = Mongoose.Schema,
+    plugin = require('./../../shared/server/shared.schema'),
 
     userSchema = new Mongoose.Schema({
         name: {
@@ -18,5 +19,7 @@ var Mongoose = require('mongoose'),
             select: false
         }
     });
+
+userSchema.plugin(plugin);
 
 module.exports = Mongoose.model('User', userSchema);

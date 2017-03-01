@@ -1,25 +1,24 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('auth')
-        .factory('auth', auth);
-    auth.$inject = ['$http'];
+        .factory('AuthFactory', AuthFactory);
+    AuthFactory.$inject = ['$http'];
 
-    function auth($http) {
+    function AuthFactory($http) {
         return {
             login: login,
             register: register
         }
 
         function login(credentials) {
-            $http.post('/login', credentials).then(function(res) {
+            $http.post('/login', credentials).then(function (res) {
+                console.log(res.data);
                 if (res.data) {
                     window.location.assign('/');
                 } else {
                     alert('Invalid credentials');
                 }
-            }, function(err) {
-                console.log(err);
             });
         }
 
@@ -28,7 +27,7 @@
                 if (res.data) {
                     window.location.assign('/');
                 } else {
-                    alert('username already exist');
+                    alert('Username already exist');
                 }
             });
         }

@@ -21,7 +21,7 @@
                 {
                     // bind the resolve in core modules
                     'module': 'core',
-                    'resolve': app.resolve || {}
+                    'resolve': {}
                 }
             ]
         };

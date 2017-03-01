@@ -3,8 +3,8 @@
  * @copyright 2016
  */
 
-(function(app) {
+(function (app) {
     'use strict';
 
-    app.registerModule('home', []);
+    app.registerModule('home', ['ui.router']);
 })(angularAppConfig);
