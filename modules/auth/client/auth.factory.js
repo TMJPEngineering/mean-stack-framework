@@ -13,7 +13,6 @@
 
         function login(credentials) {
             $http.post('/login', credentials).then(function (res) {
-                console.log(res.data);
                 if (res.data) {
                     window.location.assign('/');
                 } else {

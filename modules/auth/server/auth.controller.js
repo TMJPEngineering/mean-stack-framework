@@ -46,7 +46,7 @@ module.exports = function (method) {
     function register() {
         return function (req, res, next) {
             if ( ! req.route.methods.get) {
-                // TODO: Register
+                console.log('TODO: Register');
             } else {
                 res.sendFile(path.join(__dirname, '../../../resources/views/auth', 'index.html'));
             }
