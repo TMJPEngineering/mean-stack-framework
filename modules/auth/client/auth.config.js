@@ -12,7 +12,19 @@
                 url: '/login',
                 views: {
                     'content': {
-                        templateUrl: 'auth/login.html'
+                        templateUrl: 'auth/login.html',
+                        controller: 'AuthController',
+                        controllerAs: 'ac',
+                    }
+                }
+            })
+            .state('register', {
+                url: '/register',
+                views: {
+                    'content': {
+                        templateUrl: 'auth/register.html',
+                        controller: 'AuthController',
+                        controllerAs: 'ac',
                     }
                 }
             });

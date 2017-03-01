@@ -24,7 +24,7 @@
                         controllerAs: 'hc',
                     }
                 }
-            })
+            });
         $locationProvider.html5Mode(true);
     }
 })();
