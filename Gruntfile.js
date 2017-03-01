@@ -1,5 +1,11 @@
 module.exports = function(grunt) {
     grunt.initConfig({
+        watch: {
+            src: {
+                files: ['modules/**/*.js', '!modules/**/server/*.js', '!modules/**/server/**/*.js'],
+                tasks: ['browserify', 'uglify']
+            }
+        },
         browserify: {
             auth: {
                 src: 'modules/auth/client/*.js',
@@ -69,17 +75,11 @@ module.exports = function(grunt) {
                 src: 'public/dist/user/user.js',
                 dest: 'public/dist/user/user.min.js'
             }
-        },
-        watch: {
-            src: {
-                files: ['modules/**/client/*.js'],
-                tasks: ['browserify', 'uglify']
-            }
         }
     });
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ['browserify', 'uglify', 'watch']);
+    grunt.registerTask('default', ['watch']);
 };
